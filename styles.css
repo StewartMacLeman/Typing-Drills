@@ -140,7 +140,7 @@ textarea::placeholder {
   background-color: var(--greyBorder);
 }
 .fontItemText {
-  min-width: 40%;
+  min-width: 90%;
   height: 1.6rem;
   font-size: 1.1rem;
   padding: .1rem;
