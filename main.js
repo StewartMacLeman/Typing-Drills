@@ -39,11 +39,67 @@ let fontsArray = [
 let getTextButton = document.getElementById("getTx");
 let sampleTextParagraph = document.getElementById("sampTx");
 let typingArea = document.getElementById("typeArea");
+let typingAreaBG = document.getElementById("typingBG");
+
+let timerDisplay = document.getElementById("timerDisp");
 
 let displayFontsButton = document.getElementById("fontBut");
 let fontsDiv = document.getElementById("fontCont");
 
 let resetButton = document.getElementById("reset");
+let timer = [0, 0, 0, 0];
+let interval;
+let timerRunning = false;
+
+// Function to start the timer. ---------------------------------------------
+typingArea.addEventListener( "keypress", start_timer );
+
+function start_timer(){
+  getTextButton.classList.add("invisible");
+  let typedInTextLength = typingArea.value.length;
+  if (typedInTextLength === 0 && !timerRunning){
+    timerRunning = true;
+    interval = setInterval(runTimer, 10);
+  }
+}
+
+function runTimer(){
+  let running_time = addZero(timer[0]) + ":" + addZero(timer[1]) + ":" + addZero(timer[2]);
+  timerDisplay.textContent = running_time;
+  timer[3]++;
+
+  timer[0] = Math.floor( (timer[3]/100) / 60 );
+  timer[1] = Math.floor( (timer[3]/100) - (timer[0] * 60));
+  timer[2] = Math.floor( timer[3] - (timer[1] * 100) - (timer[0] * 6000));
+
+}
+// Helper function which adds leading zeros to the running time. -------------
+function addZero(time){
+  if (time <= 9){
+    time = "0" + time;
+  }
+  return time;
+}
+// Function to match the text of the sample and test areas.-------------------
+typingArea.addEventListener( "keyup", text_match );
+
+function text_match(){
+  let sampleText = sampleTextParagraph.textContent;
+  let textKeyed = typingArea.value;
+  let typedSoFar = sampleText.substring(0, textKeyed.length );
+
+  if (textKeyed == sampleText){
+    clearInterval(interval);
+    typingAreaBG.style.backgroundColor = "green";
+    // getTextButton.classList.remove("invisible");
+  } else {
+    if (textKeyed == typedSoFar){
+      typingAreaBG.style.backgroundColor = "powderblue";
+    }   else {
+      typingAreaBG.style.backgroundColor = "tomato";
+    }
+  }
+}
 
 // Gets the a random text sample. -------------------------
 getTextButton.addEventListener("click", getRandonText);
@@ -115,9 +171,18 @@ function displayFontsDiv(){
 resetButton.addEventListener("click", reset);
 
 function reset(){
+  getTextButton.classList.remove("invisible");
+
+  clearInterval(interval);
+  interval = null;
+  timer = [0, 0, 0, 0];
+  timerRunning = false;
+  timerDisplay.textContent = "00:00:00";
+  typingAreaBG.style.backgroundColor = "white";
+
   sampleTextParagraph.textContent = textArray[0];
   sampleTextParagraph.style.fontFamily = "helvetica";
   typingArea.style.fontFamily = "helvetica";
-  typingArea.textContent = "";
+  typingArea.value = "";
 
 }

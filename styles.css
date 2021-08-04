@@ -116,7 +116,7 @@ textarea::placeholder {
 /* The fonts scroll container. -------------------------- */
 .fontScrollCont {
   position: relative;
-  border: .15rem solid black;
+  /* border: .15rem solid black; */
   overflow-y: scroll;
   height: 175px;
 }
@@ -153,6 +153,9 @@ textarea::placeholder {
 /* The hide class. ---------------------------------------*/
 .hide {
   display: none;
+}
+.invisible {
+  visibility: hidden;
 }
  /* Body and Font size queries.-------------------------- */
  @media screen and (max-width: 850px){
