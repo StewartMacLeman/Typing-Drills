@@ -151,7 +151,6 @@ textarea::placeholder {
 .hide {
   display: none;
 }
-
  /* Body and Font size queries.-------------------------- */
  @media screen and (max-width: 850px){
    html { font-size: 12px; }
