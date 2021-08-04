@@ -1,3 +1,170 @@
-body {
-  background-color: pink;
+html {
+  font-size: 16px;
+  box-sizing: border-box;
 }
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+:root {
+  --greyBorder : rgba(128, 128, 128, 0.4);
+}
+
+body {
+  /* width: 80%; */
+  /* height: 99vh; */
+  margin: 0 auto;
+  /* border: .25rem solid black; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2rem; }
+p { font-size: 1.5rem; }
+textarea { font-size: 1.5rem; }
+button { font-size: 1.25rem; }
+/* span { font-size: 1.25rem; } */
+
+h1, h2, p, textarea, button {
+  font-family: helvetica, tahoma, serif;
+  text-align: center;
+  margin: 0 auto;
+  padding: .25rem;
+  background-color: none;
+}
+/* Button styles. ----------------------------------- */
+ button {
+   background-color: black;
+   color: white;
+   border-radius: 8px;
+ }
+ button:hover {
+   background-color: white;
+   color: black;
+   cursor: pointer;
+ }
+ /* The header styles. ---------------------------------- */
+ .header {
+   width: 100%;
+   /* height: 16vh; */
+   background-color: white;
+   border-bottom: .25rem solid black;
+   padding-bottom: .25rem;
+ }
+ /* The main container. --------------------------------- */
+ .main {
+   width: 90%;
+   margin-top: 1rem;
+   background-color: lemonchiffon;
+   border: .25rem solid black;
+   border-radius: 10px;
+ }
+ .main * {
+   margin: 10px auto;
+ }
+ /* Sample Text and typing containers styles. ------------------------------ */
+.sampleTextCont, .typingCont {
+  width: 90%;
+  border: .15rem solid black;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sampleTextCont p, .typingCont textarea {
+  width: 90%;
+  border: .15rem solid black;
+  border-radius: 10px;
+}
+.sampleTextCont button {
+  width: 50%;
+}
+.sampleTextCont * {
+  margin: 5px auto;
+}
+textarea::placeholder {
+  color: orange;
+}
+/* The timer container. --------------------------------- */
+.timerCont {
+  width: 90%;
+  border: .15rem solid black;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+}
+.timerCont p {
+  border: .15rem solid black;
+  border-radius: 10px;
+}
+.timerCont * {
+  width: 35%;
+}
+/* The font selection button, -------------------------- */
+.fontSelectionButton {
+  width: 90%;
+  border: .15rem solid black;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+}
+/* The fonts scroll container. -------------------------- */
+.fontScrollCont {
+  position: relative;
+  border: .15rem solid black;
+  overflow-y: scroll;
+  height: 175px;
+}
+.fontScrollCont * {
+  margin: 0;
+}
+.guideMessage {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  color: white;
+  background-color: black;
+}
+.fontScrollItemDiv {
+  width: 100%;
+  height: 2rem;
+  border: .1rem solid var(--greyBorder);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fontScrollItemDiv:hover {
+  cursor: pointer;
+  background-color: var(--greyBorder);
+}
+.fontItemText {
+  min-width: 40%;
+  height: 1.6rem;
+  font-size: 1.1rem;
+  padding: .1rem;
+  border: .1rem solid var(--greyBorder);
+  background-color: white;
+}
+/* The hide class. ---------------------------------------*/
+.hide {
+  display: none;
+}
+
+ /* Body and Font size queries.-------------------------- */
+ @media screen and (max-width: 850px){
+   html { font-size: 12px; }
+ }
+ @media screen and (max-width: 450px){
+   html { font-size: 10px; }
+ }
+ /* @media screen and (max-width: 380px){
+   html { font-size: 9px; }
+ }
+ @media screen and (max-width: 300px){
+   html { font-size: 8px; }
+ }
+ @media screen and (max-width: 560px){
+   body { width: 100%; }
+ } */

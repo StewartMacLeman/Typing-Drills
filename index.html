@@ -12,10 +12,59 @@
   </head>
 
   <body>
-    <h1>This is a h1</h1>
-    <h2>This is a h2</h2>
-    <p>This is a paragraph</p>
-    <button type="button">This is a button</button>
+
+    <header class="header">
+      <h1>Typing Drills</h1>
+      <h2>Type, time and repeat!</h2>
+    </header>
+
+    <main class="main">
+      <!-- The text to be copied. -->
+      <div class="sampleTextCont">
+        <button type="button">Get another sentence!</button>
+        <p>This is for the sample text!</p>
+      </div>
+      <!-- The area for typing. -->
+      <div class="typingCont">
+        <textarea class="test_area" rows="3" placeholder="The clock will start when you start typing!"></textarea>
+      </div>
+      <!-- The timer and the reset button. -->
+      <div class="timerCont">
+        <p id="timerDisp">00:00:00</p>
+        <button type="button" id="reset">Reset</button>
+      </div>
+      <!-- The font selection display button. -->
+      <div class="fontSelectionButton">
+        <button type="button">Font Selection Button</button>
+      </div>
+      <!-- The font options. -->
+      <div class="fontScrollCont" id="fontCont">
+        <p class="guideMessage">Scroll, select and click!</p>
+        <div class="fontScrollItemDiv">
+          <p class="fontItemText">A test item.</p>
+        </div>
+        <div class="fontScrollItemDiv">
+          <p class="fontItemText">A test item.</p>
+        </div>
+        <div class="fontScrollItemDiv">
+          <p class="fontItemText">A test item.</p>
+        </div>
+        <div class="fontScrollItemDiv">
+          <p class="fontItemText">A test item.</p>
+        </div>
+        <div class="fontScrollItemDiv">
+          <p class="fontItemText">A test item.</p>
+        </div>
+        <div class="fontScrollItemDiv">
+          <p class="fontItemText">A test item.</p>
+        </div>
+        <div class="fontScrollItemDiv">
+          <p class="fontItemText">A test item.</p>
+        </div>
+      </div>
+
+    </main>
+
 
   </body>
 </html>
