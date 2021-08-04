@@ -110,6 +110,9 @@ textarea::placeholder {
   border-radius: 10px;
   display: flex;
 }
+.fontSelectionButton button {
+  width: 50%;
+}
 /* The fonts scroll container. -------------------------- */
 .fontScrollCont {
   position: relative;

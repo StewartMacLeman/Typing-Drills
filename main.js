@@ -101,7 +101,15 @@ function addFont(e){
 displayFontsButton.addEventListener("click", displayFontsDiv);
 
 function displayFontsDiv(){
-  console.log("hello");
+  if (displayFontsButton.textContent == "Display Font Selection"){
+    fontsDiv.classList.remove("hide");
+    fontsDiv.classList.add("fontScrollCont");
+    displayFontsButton.textContent = "Hide Font Selection";
+  } else if (displayFontsButton.textContent == "Hide Font Selection"){
+    fontsDiv.classList.add("hide");
+    fontsDiv.classList.remove("fontScrollCont");
+    displayFontsButton.textContent = "Display Font Selection";
+  }
 }
 // Reset function. ------------------------------------------
 resetButton.addEventListener("click", reset);
