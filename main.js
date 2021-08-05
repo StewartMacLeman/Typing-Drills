@@ -35,7 +35,7 @@ let fontsArray = [
 { group: "script / cursive", family: "brush script mt" }
 ];
 
-// Global variables. --------------------------------------
+// Global variables. --------------------------------------------------------
 let getTextButton = document.getElementById("getTx");
 let sampleTextParagraph = document.getElementById("sampTx");
 let typingArea = document.getElementById("typeArea");
@@ -50,16 +50,19 @@ let resetButton = document.getElementById("reset");
 let timer = [0, 0, 0, 0];
 let interval;
 let timerRunning = false;
+// //////////////////////////////////////////////////////////////////////////
 
 // Function to start the timer. ---------------------------------------------
-typingArea.addEventListener( "keypress", start_timer );
+typingArea.addEventListener( "keypress", startTimer );
 
-function start_timer(){
+function startTimer(){
   getTextButton.classList.add("invisible");
   let typedInTextLength = typingArea.value.length;
   if (typedInTextLength === 0 && !timerRunning){
     timerRunning = true;
     interval = setInterval(runTimer, 10);
+    // If backspaced to zero content!
+    typingArea.setAttribute("placeholder", "Gone on, start typing!");
   }
 }
 
@@ -81,9 +84,9 @@ function addZero(time){
   return time;
 }
 // Function to match the text of the sample and test areas.-------------------
-typingArea.addEventListener( "keyup", text_match );
+typingArea.addEventListener( "keyup", textMatch );
 
-function text_match(){
+function textMatch(){
   let sampleText = sampleTextParagraph.textContent;
   let textKeyed = typingArea.value;
   let typedSoFar = sampleText.substring(0, textKeyed.length );
@@ -91,7 +94,7 @@ function text_match(){
   if (textKeyed == sampleText){
     clearInterval(interval);
     typingAreaBG.style.backgroundColor = "green";
-    // getTextButton.classList.remove("invisible");
+
   } else {
     if (textKeyed == typedSoFar){
       typingAreaBG.style.backgroundColor = "powderblue";
@@ -101,7 +104,7 @@ function text_match(){
   }
 }
 
-// Gets the a random text sample. -------------------------
+// Gets a random text sample. ----------------------------------------
 getTextButton.addEventListener("click", getRandonText);
 
 let textArray = [
@@ -110,14 +113,15 @@ let textArray = [
   "The five boxing wizards jump quickly.",
   "Jackdaws love my big sphinx of quartz.",
   "abcdefg hijklomn qurst uvwxyz",
-  "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday and Sunday",
-  "January, February, March, April, May, June, July, August, September, October, November and December"
+  "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday and Sunday.",
+  "January, February, March, April, May, June, July, August, September, October, November and December."
 ];
 
 function getRandonText(){
   let randomIndex = Math.floor((Math.random() * textArray.length));
   let nextTextSample = textArray[randomIndex];
   let currentTextSample = sampleTextParagraph.textContent;
+
    // To ensure the next text is different from the current.
    if (nextTextSample != currentTextSample){
      sampleTextParagraph.textContent = nextTextSample;
@@ -178,11 +182,12 @@ function reset(){
   timer = [0, 0, 0, 0];
   timerRunning = false;
   timerDisplay.textContent = "00:00:00";
+
   typingAreaBG.style.backgroundColor = "white";
-
-  sampleTextParagraph.textContent = textArray[0];
-  sampleTextParagraph.style.fontFamily = "helvetica";
-  typingArea.style.fontFamily = "helvetica";
   typingArea.value = "";
+  typingArea.setAttribute("placeholder", "The clock will start when you start typing!");
 
+  fontsDiv.classList.add("hide");
+  fontsDiv.classList.remove("fontScrollCont");
+  displayFontsButton.textContent = "Display Font Selection";
 }

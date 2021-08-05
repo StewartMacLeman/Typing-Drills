@@ -10,10 +10,7 @@ html {
 }
 
 body {
-  /* width: 80%; */
-  /* height: 99vh; */
   margin: 0 auto;
-  /* border: .25rem solid black; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,7 +21,6 @@ h2 { font-size: 2rem; }
 p { font-size: 1.5rem; }
 textarea { font-size: 1.5rem; }
 button { font-size: 1.25rem; }
-/* span { font-size: 1.25rem; } */
 
 h1, h2, p, textarea, button {
   font-family: helvetica, tahoma, serif;
@@ -33,7 +29,7 @@ h1, h2, p, textarea, button {
   padding: .25rem;
   background-color: none;
 }
-/* Button styles. ----------------------------------- */
+/* Button styles. ---------------------------------------- */
  button {
    background-color: black;
    color: white;
@@ -44,17 +40,16 @@ h1, h2, p, textarea, button {
    color: black;
    cursor: pointer;
  }
- /* The header styles. ---------------------------------- */
+ /* The header container. ---------------------------------- */
  .header {
    width: 100%;
-   /* height: 16vh; */
    background-color: white;
    border-bottom: .25rem solid black;
    padding-bottom: .25rem;
  }
- /* The main container. --------------------------------- */
+ /* The main container. ------------------------------------- */
  .main {
-   width: 90%;
+   width: 80%;
    margin-top: 1rem;
    background-color: lemonchiffon;
    border: .25rem solid black;
@@ -63,7 +58,7 @@ h1, h2, p, textarea, button {
  .main * {
    margin: 10px auto;
  }
- /* Sample Text and typing containers styles. ------------------------------ */
+ /* Sample Text and typing containers styles. ---------------- */
 .sampleTextCont, .typingCont {
   width: 90%;
   border: .15rem solid black;
@@ -102,7 +97,7 @@ textarea::placeholder {
 .timerCont * {
   width: 35%;
 }
-/* The font selection button, -------------------------- */
+/* The font selection button. -------------------------- */
 .fontSelectionButton {
   width: 90%;
   border: .15rem solid black;
@@ -116,7 +111,6 @@ textarea::placeholder {
 /* The fonts scroll container. -------------------------- */
 .fontScrollCont {
   position: relative;
-  /* border: .15rem solid black; */
   overflow-y: scroll;
   height: 175px;
 }
@@ -150,26 +144,34 @@ textarea::placeholder {
   border: .1rem solid var(--greyBorder);
   background-color: white;
 }
-/* The hide class. ---------------------------------------*/
+/* The hide and invisible classes. ------------------------------*/
 .hide {
   display: none;
 }
 .invisible {
   visibility: hidden;
 }
- /* Body and Font size queries.-------------------------- */
+ /* Media queries.----------------------------------------------- */
  @media screen and (max-width: 850px){
+   .main { width: 90%; }
+ }
+ @media screen and (max-width: 650px){
    html { font-size: 12px; }
+
+   .main *, .sampleTextCont p, .typingCont textarea, .timerCont p  {
+     border-radius: 8px;
+   }
+   .fontScrollCont { border-radius: 0; }
+   .fontScrollCont * { border-radius: 0; }
+
+   button { border-radius: 6px; }
+ }
+ @media screen and (max-width: 550px){
+   .main { width: 96%; }
  }
  @media screen and (max-width: 450px){
    html { font-size: 10px; }
  }
- /* @media screen and (max-width: 380px){
-   html { font-size: 9px; }
+ @media screen and (max-width: 250px){
+   .timerCont * { width: 42%; }
  }
- @media screen and (max-width: 300px){
-   html { font-size: 8px; }
- }
- @media screen and (max-width: 560px){
-   body { width: 100%; }
- } */
