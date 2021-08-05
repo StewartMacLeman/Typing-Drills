@@ -47,6 +47,9 @@ h1, h2, p, textarea, button {
    border-bottom: .25rem solid black;
    padding-bottom: .25rem;
  }
+ .header h1 {
+   font-family: american typewriter;
+ }
  /* The main container. ------------------------------------- */
  .main {
    width: 80%;
