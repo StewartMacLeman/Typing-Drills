@@ -8,7 +8,7 @@ This tool is for helping people to practise their typing skills.
 * Timer and reset functions.
 
 ---
-## Build with:
+## Built with:
 * JavaScript
 * CSS
 * HTML
